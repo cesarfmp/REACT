@@ -28,7 +28,37 @@ class App extends Component {
       },
       activos: {
         titulo: 'Activos',
-        expandidoPanel: true
+        expandidoPanel: true,
+        nombreColumnas: [{
+          titulo: 'Código'
+        },{
+          titulo: 'Nombre'
+        },{
+          titulo: 'Tipo'
+        },{
+          titulo: 'Crítico'
+        }],
+        arrayActivos: [{
+          codigo: '009.005.1',
+          nombre: 'Sirena SAM 800',
+          tipo: 'Sirena',
+          critico: 'Alta criticidad'
+        },{
+          codigo: '007.005.11',
+          nombre: 'Luminaria Estanca 1X58W',
+          tipo: 'Alumbrado',
+          critico: 'Baja criticidad'
+        },{
+          codigo: '009.003.17',
+          nombre: 'Pulsador Zetler CP 820',
+          tipo: 'Pulsador',
+          critico: 'Mediana criticidad'
+        },{
+          codigo: '009.002.1',
+          nombre: 'Detector 830 PH',
+          tipo: 'Detector de incendios',
+          critico: 'Alta criticidad'
+        }]
       },
       pie: {        
       }                
