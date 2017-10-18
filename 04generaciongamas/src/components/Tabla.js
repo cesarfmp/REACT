@@ -18,17 +18,17 @@ class Tabla extends Component {
             <Table striped bordered condensed hover>
               <thead>
                 <tr>                  
-                    {this.props.activos.nombreColumnas.map(columna => {
+                    {this.props.activos.nombreColumnas.map(function(columna, i) {
                       return (
-                        <th>{columna.titulo}</th>                        
+                        <th key={i}>{columna.titulo}</th>                        
                       );
                     })}                  
                 </tr>
               </thead>
               <tbody>                
-                  {this.props.activos.arrayActivos.map(activo => {
+                  {this.props.activos.arrayActivos.map(function(activo, i) {
                     return (
-                      <tr>
+                      <tr key={i}>
                         <td>{activo.codigo}</td>
                         <td>{activo.nombre}</td>
                         <td>{activo.tipo}</td>

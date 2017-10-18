@@ -30,30 +30,38 @@ class App extends Component {
         titulo: 'Activos',
         expandidoPanel: true,
         nombreColumnas: [{
+          id: 1,
           titulo: 'Código'
         },{
+          id: 2,
           titulo: 'Nombre'
         },{
+          id: 3,
           titulo: 'Tipo'
         },{
+          id: 4,
           titulo: 'Crítico'
         }],
         arrayActivos: [{
+          id: 1,
           codigo: '009.005.1',
           nombre: 'Sirena SAM 800',
           tipo: 'Sirena',
           critico: 'Alta criticidad'
         },{
+          id: 2,
           codigo: '007.005.11',
           nombre: 'Luminaria Estanca 1X58W',
           tipo: 'Alumbrado',
           critico: 'Baja criticidad'
         },{
+          id: 3,
           codigo: '009.003.17',
           nombre: 'Pulsador Zetler CP 820',
           tipo: 'Pulsador',
           critico: 'Mediana criticidad'
         },{
+          id: 4,
           codigo: '009.002.1',
           nombre: 'Detector 830 PH',
           tipo: 'Detector de incendios',
@@ -67,6 +75,10 @@ class App extends Component {
     };
   }
 
+  mostrarAlerta() {
+
+  }
+
   render() {
     return (
       <div>          
@@ -74,7 +86,7 @@ class App extends Component {
        <Formulario datos={this.state.datos} />     
        <Arbol  espacios={this.state.espacios} />     
        <Tabla  activos={this.state.activos}/>     
-       <Pie pie={this.state.pie}/>     
+       <Pie pie={this.state.pie}/>        
       </div>    
     );
   }
