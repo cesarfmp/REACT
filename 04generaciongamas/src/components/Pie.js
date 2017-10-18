@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import FormGroup from 'react-bootstrap/lib/FormGroup';
+import Checkbox from 'react-bootstrap/lib/Checkbox';
+import Button from 'react-bootstrap/lib/Button';
 
 class Pie extends Component {
   
@@ -10,9 +13,18 @@ class Pie extends Component {
   
   render () {
     return (
-      <div>
-          Pintar Pie
+      <div>                              
+            <FormGroup inline className="pull-right">              
+              <Checkbox inline>
+                {this.props.pie.lblAgruparEntidades}
+              </Checkbox>
+              {' '}
+              <Button>Generar</Button> 
+              {' '}                 
+            </FormGroup>          
+            {' '}                             
       </div>
+      
     );
   }
 }

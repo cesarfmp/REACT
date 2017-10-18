@@ -60,7 +60,9 @@ class App extends Component {
           critico: 'Alta criticidad'
         }]
       },
-      pie: {        
+      pie: {
+        lblAgruparEntidades: 'Agrupar entidades',
+        lblGenerar: 'Generar'
       }                
     };
   }
