@@ -7,22 +7,42 @@ import Tabla from './components/Tabla';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
-import Alert from 'react-bootstrap/lib/Alert';
-import ButtonToolbar from 'react-bootstrap/lib/ButtonToolbar';
-import Button from 'react-bootstrap/lib/Button';
-
 
 
 class App extends Component {
-        
+     
+  constructor() {
+    super();
+    this.state = {
+      datos: {
+        titulo: "Datos",
+        expandidoPanel: true,
+        lblModeloGama: "Modelo de gama",
+        modelo: "Climatizador o UTA > 70 Kw",
+        lblFechaInicio: "Fecha inicio",
+        fechaInicio: '30/06/2017'
+      },
+      espacios: {
+        titulo: 'Espacios',
+        expandidoPanel: true
+      },
+      activos: {
+        titulo: 'Activos',
+        expandidoPanel: true
+      },
+      pie: {        
+      }                
+    };
+  }
+
   render() {
     return (
       <div>          
-       <Cabecera />
-       <Formulario />     
-       <Arbol />     
-       <Tabla />     
-       <Pie />     
+       <Cabecera/>
+       <Formulario datos={this.state.datos} />     
+       <Arbol  espacios={this.state.espacios} />     
+       <Tabla  activos={this.state.activos}/>     
+       <Pie pie={this.state.pie}/>     
       </div>    
     );
   }
