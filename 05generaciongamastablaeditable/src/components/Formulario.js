@@ -4,21 +4,32 @@ import FormGroup from 'react-bootstrap/lib/FormGroup';
 import ControlLabel from 'react-bootstrap/lib/ControlLabel';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import Form from 'react-bootstrap/lib/Form';
+import DatePicker from 'react-datepicker';
+import moment from 'moment';
 
 class Formulario extends Component {
   
   constructor() {
     super();
     this.state = {
-      open: true
+      open: true,
+      fechaInicio: moment()
     };
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(date) {
+    this.setState({
+      fechaInicio: date
+    });
   }
   
   
   render () {
     return (
       <div>
-        <Panel header={this.props.datos.titulo} collapsible expanded={this.state.open}  onClick={ ()=> this.setState({ open: !this.state.open })}>
+        <Panel header={this.props.datos.titulo}>
         <Form inline>
             <FormGroup>
               <ControlLabel>{this.props.datos.lblModeloGama}</ControlLabel>
@@ -32,7 +43,8 @@ class Formulario extends Component {
               <ControlLabel>{this.props.datos.lblFechaInicio}</ControlLabel>
               {' '}
               <FormControl.Static>
-                {this.props.datos.fechaInicio}
+              <DatePicker selected={this.state.fechaInicio} onChange={this.handleChange} dateFormat="DD/MM/YYYY"/>
+                
               </FormControl.Static>
             </FormGroup>
           </Form>

@@ -8,7 +8,7 @@ import Alertas from './components/Alertas';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
-import 'react-bootstrap-table/dist/react-bootstrap-table-all.min.css';
+import 'react-datepicker/dist/react-datepicker.css';
 
 class App extends Component {
      
