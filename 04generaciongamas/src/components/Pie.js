@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-import Alertas from './Alertas';
-
 import FormGroup from 'react-bootstrap/lib/FormGroup';
 import Checkbox from 'react-bootstrap/lib/Checkbox';
 import Button from 'react-bootstrap/lib/Button';
@@ -30,11 +28,9 @@ class Pie extends Component {
                   {this.props.pie.lblAgruparEntidades}
                 </Checkbox>
                 {' '}
-                <Button onClick={() => this.refs.alertas.handleAlertShow()}>Generar</Button> 
+                <Button onClick={this.props.handleAlertShow}>Generar</Button> 
                 {' '}                 
-              </FormGroup>          
-              {' '}
-              <Alertas ref="alertas"/>                                       
+              </FormGroup>                                      
         </div>
         
       );

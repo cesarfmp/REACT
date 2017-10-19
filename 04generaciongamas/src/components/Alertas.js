@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
-import FormGroup from 'react-bootstrap/lib/FormGroup';
-import Checkbox from 'react-bootstrap/lib/Checkbox';
-import Button from 'react-bootstrap/lib/Button';
 import Alert from 'react-bootstrap/lib/Alert';
+import Panel from 'react-bootstrap/lib/Panel';
 
 class Alertas extends Component {
   
   constructor(props) {
     super(props);
     this.state = {   
-      alertVisible: false
+      alertVisible: false,
+      mensaje: 'Operacion realizada'
     };    
    
     this.handleAlertDismiss = this.handleAlertDismiss.bind(this)
@@ -20,8 +19,12 @@ class Alertas extends Component {
     this.setState({alertVisible: false});
   }
 
-  handleAlertShow() {
-    this.setState({alertVisible: true});
+  handleAlertShow(mensaje) {
+    //alert(mensaje);
+    this.setState({
+      alertVisible: true,
+      mensaje: mensaje
+    });
   }
   
   render () {
@@ -29,13 +32,13 @@ class Alertas extends Component {
     if (this.state.alertVisible) {
     
       return (
-        <div>                    
-           <Alert bsStyle="success" onDismiss={this.handleAlertDismiss}>            
-              <p>
-                Se crearon 26 gamas hasta final de año.
-              </p>                         
-            </Alert>                         
-        </div>
+       
+        <Alert bsStyle="success" onDismiss={this.handleAlertDismiss}>            
+          <p>
+            {this.state.mensaje}
+          </p>                         
+        </Alert>                         
+       
         
       );
     } else {

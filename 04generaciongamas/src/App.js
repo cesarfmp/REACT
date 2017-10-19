@@ -4,6 +4,7 @@ import Cabecera from './components/Cabecera';
 import Formulario from './components/Formulario';
 import Pie from './components/Pie';
 import Tabla from './components/Tabla';
+import Alertas from './components/Alertas';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
@@ -75,18 +76,22 @@ class App extends Component {
     };
   }
 
-  mostrarAlerta() {
+  handleAlertShow() {
+    
+    var mensaje = "Se crearon 27 gamas hasta final de año.";
 
+    this.refs.alertas.handleAlertShow(mensaje);
   }
 
   render() {
     return (
       <div>          
+       <Alertas ref="alertas"/>                                          
        <Cabecera/>
        <Formulario datos={this.state.datos} />     
        <Arbol  espacios={this.state.espacios} />     
        <Tabla  activos={this.state.activos}/>     
-       <Pie pie={this.state.pie}/>        
+       <Pie pie={this.state.pie} handleAlertShow={this.handleAlertShow.bind(this)}/>            
       </div>    
     );
   }
