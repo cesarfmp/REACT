@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Alert from 'react-bootstrap/lib/Alert';
+import Panel from 'react-bootstrap/lib/Panel';
 
 class Alertas extends Component {
   
