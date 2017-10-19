@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import Panel from 'react-bootstrap/lib/Panel';
 import Table from 'react-bootstrap/lib/Table';
+import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table/lib/';
+
+const selectRowProp = {
+  mode: 'checkbox'
+};
 
 class Tabla extends Component {
   
@@ -14,31 +19,13 @@ class Tabla extends Component {
   render () {
     return (
       <div>
-          <Panel header={this.props.activos.titulo} collapsible expanded={this.state.open}  onClick={ ()=> this.setState({ open: !this.state.open })}>
-            <Table striped bordered condensed hover>
-              <thead>
-                <tr>                  
-                    {this.props.activos.nombreColumnas.map(function(columna, i) {
-                      return (
-                        <th key={i}>{columna.titulo}</th>                        
-                      );
-                    })}                  
-                </tr>
-              </thead>
-              <tbody>                
-                  {this.props.activos.arrayActivos.map(function(activo, i) {
-                    return (
-                      <tr key={i}>
-                        <td>{activo.codigo}</td>
-                        <td>{activo.nombre}</td>
-                        <td>{activo.tipo}</td>
-                        <td>{activo.critico}</td>                        
-                      </tr>                
-                    );
-                  })}
-                
-              </tbody>
-            </Table>
+          <Panel header={this.props.activos.titulo}>
+            <BootstrapTable ref='tablaGamas' data={this.props.activos.arrayActivos} selectRow={selectRowProp}>
+                <TableHeaderColumn dataField='codigo' isKey>Código</TableHeaderColumn>
+                <TableHeaderColumn dataField='nombre'>Nombre</TableHeaderColumn>
+                <TableHeaderColumn dataField='tipo'>Título</TableHeaderColumn>
+                <TableHeaderColumn dataField='critico'>Crítico</TableHeaderColumn>          
+            </BootstrapTable>
           </Panel>
       </div>
     );

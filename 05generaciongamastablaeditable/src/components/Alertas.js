@@ -19,11 +19,12 @@ class Alertas extends Component {
     this.setState({alertVisible: false});
   }
 
-  handleAlertShow(mensaje) {
+  handleAlertShow(mensaje, tipo) {
     //alert(mensaje);
     this.setState({
       alertVisible: true,
-      mensaje: mensaje
+      mensaje: mensaje,
+      tipo: tipo
     });
   }
   
@@ -33,7 +34,7 @@ class Alertas extends Component {
     
       return (
        
-        <Alert bsStyle="success" onDismiss={this.handleAlertDismiss}>            
+        <Alert bsStyle={this.state.tipo} onDismiss={this.handleAlertDismiss}>            
           <p>
             {this.state.mensaje}
           </p>                         

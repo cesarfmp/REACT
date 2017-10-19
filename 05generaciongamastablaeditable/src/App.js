@@ -8,7 +8,7 @@ import Alertas from './components/Alertas';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
-
+import 'react-bootstrap-table/dist/react-bootstrap-table-all.min.css';
 
 class App extends Component {
      
@@ -78,9 +78,27 @@ class App extends Component {
 
   handleAlertShow() {
     
-    var mensaje = "Se crearon 27 gamas hasta final de año.";
+    
 
-    this.refs.alertas.handleAlertShow(mensaje);
+    var tabla = this.refs.tabla.refs.tablaGamas;
+
+    if (tabla.state.selectedRowKeys && tabla.state.selectedRowKeys.length > 0)  {
+
+      var mensaje = "Se han seleccionado los siguientes registros: ";
+      
+      tabla.state.selectedRowKeys.forEach( function(valor, indice, array) {
+        mensaje += valor + " ";
+      });
+
+      
+      this.refs.alertas.handleAlertShow(mensaje, "success");
+
+    } else {
+      var mensaje = "No se han seleccionado ningún registro";
+      this.refs.alertas.handleAlertShow(mensaje, "warning");
+    }
+
+    
   }
 
   render() {
@@ -90,7 +108,7 @@ class App extends Component {
        <Cabecera/>
        <Formulario datos={this.state.datos} />     
        <Arbol  espacios={this.state.espacios} />     
-       <Tabla  activos={this.state.activos}/>     
+       <Tabla ref="tabla"  activos={this.state.activos}/>     
        <Pie pie={this.state.pie} handleAlertShow={this.handleAlertShow.bind(this)}/>            
       </div>    
     );
